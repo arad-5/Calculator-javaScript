@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000;
+    height: 100vh;
+    display: flex;
+}
+#calculator-container {
+    margin: auto;
+    padding: 1rem;
+    background-color: rgb(187, 187, 187);
+    border-radius: 1rem;
+}
+#diplay {
+    height: 7rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+#buttons-container {
+    padding: 1rem;
+    // height: 20rem;
+    background-color: #fff;
+    display: grid;
+    grid-gap: 0.5rem;
+    background-color: silver;
+    border-radius: 1rem;
+    grid-template-areas:
+        " parenthesis percent backSpace clear"
+        "one two three division"
+        "four five six minus"
+        "seven eight nine  plus"
+        "dot zero  multipy equal";
+}
+button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    background-color: #fff;
+    &:hover {
+        background-color: #adadad;
+    }
+}
+
+
+
+
+
+
+
+.clear {
+    grid-area: clear;
+    background-color: rgb(243, 53, 53);
+}
+.parenthesis {
+    grid-area: parenthesis;
+}
+.percent {
+    grid-area: percent;
+}
+.backSpace {
+    grid-area: backSpace;
+}
+.division {
+    grid-area: division;
+}
+.multipy {
+    grid-area: multipy;
+}
+.minus {
+    grid-area: minus;
+}
+.plus {
+    grid-area: plus;
+}
+.equal {
+    grid-area: equal;
+    background-color: rgb(0, 196, 0);
+}
+.dot {
+    grid-area: dot;
+}
+.one {
+    grid-area: one;
+}
+.two {
+    grid-area: two;
+}
+.three {
+    grid-area: three;
+}
+.four {
+    grid-area: four;
+}
+.five {
+    grid-area: five;
+}
+.six {
+    grid-area: six;
+}
+.seven {
+    grid-area: seven;
+}
+.eight {
+    grid-area: eight;
+}
+.nine {
+    grid-area: nine;
+}
+.zero {
+    grid-area: zero;
+}
