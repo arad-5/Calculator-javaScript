@@ -12,19 +12,21 @@ document.getElementById("buttons-container").addEventListener("click", (event) =
             return;
         case "C":
             display.textContent = 0;
-            return;
-        case "C":
-            display.textContent = 0;
+            document.querySelector(".parenthesis").textContent = "(";
             return;
         case "=":
             //validity
             if (!new RegExp("^([a-z]{0,})$").test(display.textContent)) {
                 // ^^^ because we will have eval function we must make sure input is not containing alphabetic characters.
-                const willBeCalculated = display.textContent.replace("−", "-").replace("÷", "/").replace("×", "*");
+                const willBeCalculated = display.textContent.replace("−", "-").replace("÷", "/").replace("×", "*"); // this will replace math sign operators to computer math signs.
                 const result = eval(willBeCalculated);
+                console.log(willBeCalculated);
                 display.textContent = result;
             }
             return;
+        case "(":
+        case ")":
+            event.target.textContent = event.target.textContent == "(" ? ")" : "(";
         default:
             break;
     }
@@ -33,5 +35,14 @@ document.getElementById("buttons-container").addEventListener("click", (event) =
         display.textContent = input;
     } else {
         display.textContent += input;
+    }
+});
+document.getElementById("theme").addEventListener("click", (event) => {
+    if (event.target.textContent === "☀️") {
+        document.body.style.backgroundColor = "#aeaeae";
+        event.target.textContent = "🌙";
+    } else {
+        document.body.style.backgroundColor = "#000";
+        event.target.textContent = "☀️";
     }
 });
