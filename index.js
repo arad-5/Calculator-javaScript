@@ -19,9 +19,15 @@ document.getElementById("buttons-container").addEventListener("click", (event) =
             if (!new RegExp("^([a-z]{0,})$").test(display.textContent)) {
                 // ^^^ because we will have eval function we must make sure input is not containing alphabetic characters.
                 const willBeCalculated = display.textContent.replace("−", "-").replace("÷", "/").replace("×", "*"); // this will replace math sign operators to computer math signs.
-                const result = eval(willBeCalculated);
-                console.log(willBeCalculated);
-                display.textContent = result;
+                try {
+                    const result = eval(willBeCalculated);
+                    display.textContent = result;
+                } catch{
+                    display.textContent = "Error!";
+                    setTimeout(() => {
+                        display.textContent = 0;
+                    }, 10);
+                }
             }
             return;
         case "(":
