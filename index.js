@@ -26,19 +26,21 @@ document.getElementById("buttons-container").addEventListener("click", (event) =
                     display.textContent = "Error!";
                     setTimeout(() => {
                         display.textContent = 0;
-                    }, 10);
+                    }, 600);
                 }
             }
             return;
         case "(":
         case ")":
-            event.target.textContent = event.target.textContent == "(" ? ")" : "(";
+            event.target.textContent = event.target.textContent == "(" ? ")" : "("; // this is for switching (open , close) paranthesis in button
         default:
             break;
     }
-
-    if (display.innerText === "0") {
-        display.textContent = input;
+    if(event.target.className.includes("operator")) { // this statements are for not allowing two operator signs stand next to each other
+        if(display.textContent.charAt(display.textContent.length - 1) === event.target.textContent) return;
+    }
+    if (display.innerText === "0") { // this statement is for deleting 0 when user starts
+        event.target.textContent === "." ? display.textContent += input : display.textContent = input;
     } else {
         display.textContent += input;
     }
